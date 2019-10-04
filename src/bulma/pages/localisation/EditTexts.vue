@@ -148,7 +148,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { focus, selectOnFocus } from '@enso-ui/directives';
 import { EnsoSelect } from '@enso-ui/select/bulma';
-import { VueSwitch } from '@enso-ui/switch/bulma';
+import VueSwitch from '@enso-ui/switch/bulma';
 
 library.add(faSearch, faTrashAlt);
 
