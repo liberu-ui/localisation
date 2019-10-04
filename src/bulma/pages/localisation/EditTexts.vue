@@ -147,7 +147,8 @@ import { mapState } from 'vuex';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { focus, selectOnFocus } from '@enso-ui/directives';
-import { EnsoSelect, VueSwitch } from '@enso-ui/bulma';
+import { EnsoSelect } from '@enso-ui/select/bulma';
+import { VueSwitch } from '@enso-ui/switch/bulma';
 
 library.add(faSearch, faTrashAlt);
 
