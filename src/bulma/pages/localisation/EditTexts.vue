@@ -155,7 +155,7 @@ library.add(faSearch, faTrashAlt);
 export default {
     name: 'EditTexts',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route'],
+    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
 
     directives: { focus, selectOnFocus },
 
@@ -262,7 +262,7 @@ export default {
                 langFile: this.langFile,
             }).then(({ data }) => {
                 this.loading = false;
-                this.$toastr.success(data.message);
+                this.toastr.success(data.message);
             }).catch(this.errorHandler);
         },
         addKey() {
@@ -291,7 +291,7 @@ export default {
             axios.patch(this.route('system.localisation.merge'))
                 .then(({ data }) => {
                     this.loading = false;
-                    this.$toastr.success(data.message);
+                    this.toastr.success(data.message);
                 }).catch(this.errorHandler);
         },
         sortedKeys() {
