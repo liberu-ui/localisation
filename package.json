@@ -22,6 +22,7 @@
   "homepage": "https://github.com/enso-ui/localisation#readme",
   "dependencies": {
     "@enso-ui/directives": "^1.0",
+    "@enso-ui/dropdown": "^2.0",
     "@enso-ui/forms": "^2.0",
     "@enso-ui/select": "^2.0",
     "@enso-ui/switch": "^1.0",
