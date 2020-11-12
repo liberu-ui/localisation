@@ -5,8 +5,8 @@ import KeyCollector from './components/settings/KeyCollector.vue';
 import LanguageSelector from './components/settings/LanguageSelector.vue';
 
 Vue.component('navbar-missing-key', MissingKey);
-Vue.component('navbar-key-collector', KeyCollector);
-Vue.component('navbar-language-selector', LanguageSelector);
-App.registerNavbarItem('navbar-missing-key', 10);
-App.registerSettingsItem('navbar-key-collector', 30);
-App.registerSettingsItem('navbar-language-selector', 10);
+Vue.component('setting-key-collector', KeyCollector);
+Vue.component('setting-language-selector', LanguageSelector);
+App.registerNavbarItem('navbar-missing-key', 100);
+App.registerSettingsItem('setting-language-selector', 100);
+App.registerSettingsItem('setting-key-collector', 600);
