@@ -6,7 +6,7 @@
                 <span class="has-text-info is-bold">
                     {{ count }}
                 </span>
-                <span class="icon  is-clickable has-margin-left-medium"
+                <span class="icon  is-clickable ml-2"
                     :class="hover ? 'has-text-success' : 'has-text-danger'"
                     v-on="events">
                     <fa :icon="hover && count ? 'check' : 'language'"/>

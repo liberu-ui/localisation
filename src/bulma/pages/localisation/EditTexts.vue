@@ -11,7 +11,7 @@
                     </div>
                     <div class="column is-half has-text-right animated fadeIn is-hidden-mobile"
                         v-if="selectedLocale">
-                        <p class="has-padding-top-small">
+                        <p class="pt-1">
                             <b>{{ keysCount }}</b> {{ i18n('keys found') }}
                         </p>
                     </div>
@@ -71,7 +71,7 @@
                     <div class="column">
                         <label class="label">
                             {{ i18n('Core') }}
-                            <vue-switch class="has-margin-left-medium has-margin-right-medium"
+                            <vue-switch class="mx-2"
                                 v-model="filterCore"
                                 size="is-large"/>
                             {{ i18n('App') }}
@@ -80,7 +80,7 @@
                     <div class="column">
                         <label class="label">
                             {{ i18n('Only missing') }}
-                            <vue-switch class="has-margin-left-medium"
+                            <vue-switch class="ml-2"
                                 v-model="filterMissing"
                                 size="is-large"/>
                         </label>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="box has-background-light raises-on-hover has-margin-top-large"
+        <div class="box has-background-light raises-on-hover mt-3"
             v-if="selectedLocale">
             <div class="columns is-hidden-mobile has-shadow-bottom"
                 v-if="filteredKeys.length">
