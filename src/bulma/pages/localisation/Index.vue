@@ -1,7 +1,7 @@
 <template>
     <enso-table class="box is-paddingless raises-on-hover"
         id="languages">
-        <template v-slot:flag="{ row }">
+        <template #:flag="{ row }">
             <span class="icon is-small">
                 <i :class="row.flag"/>
             </span>

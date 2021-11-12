@@ -2,7 +2,7 @@
     <div class="columns is-centered">
         <div class="column is-three-quarters-desktop is-full-touch">
             <enso-form class="box has-background-light raises-on-hover">
-                <template v-slot:flag="{ field }">
+                <template #:flag="{ field }">
                     <label class="label">
                         {{ i18n(field.label) }}
                     </label>

@@ -1,6 +1,6 @@
 <template>
     <core-language-selector>
-        <template v-slot:default="{ locale, languages, update, multiLanguage }">
+        <template #:default="{ locale, languages, update, multiLanguage }">
             <div class="level is-mobile"
                 v-if="multiLanguage">
                 <div class="level-left">
@@ -11,12 +11,12 @@
                 <div class="level-right">
                     <div class="level-item language-selector">
                         <dropdown>
-                            <template v-slot:label>
+                            <template #:label>
                                 <span class="icon">
                                     <i :class="languages[locale]"/>
                                 </span>
                             </template>
-                            <template v-slot:items>
+                            <template #:items>
                                 <dropdown-item v-for="(flag, lang) in languages"
                                     :key="lang"
                                     :selected="locale === lang"
