@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faLanguage, faCheck } from '@fortawesome/free-solid-svg-icons';
 import CoreMissingKeys from '../../../core/components/navbar/MissingKeys.vue';
@@ -26,6 +27,6 @@ library.add(faLanguage, faCheck);
 export default {
     name: 'MissingKeys',
 
-    components: { CoreMissingKeys },
+    components: { CoreMissingKeys, Fa },
 };
 </script>

@@ -144,6 +144,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { focus, selectOnFocus } from '@enso-ui/directives';
@@ -159,7 +160,7 @@ export default {
 
     directives: { focus, selectOnFocus },
 
-    components: { EnsoSelect, VueSwitch },
+    components: { EnsoSelect, Fa, VueSwitch },
 
     data: () => ({
         langFile: {},
