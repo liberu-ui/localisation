@@ -15,7 +15,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             isLocal: this.meta.env === 'local',
             bindings: {
                 value: this.collect,

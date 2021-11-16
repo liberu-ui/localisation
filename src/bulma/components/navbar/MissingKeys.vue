@@ -1,6 +1,6 @@
 <template>
     <core-missing-keys>
-        <template #:default="{ keyCollector, hover, count, events, isTouch }">
+        <template #default="{ keyCollector, hover, count, events, isTouch }">
             <div class="navbar-item key-collector"
                 v-if="keyCollector && !isTouch">
                 <span class="has-text-info is-bold">

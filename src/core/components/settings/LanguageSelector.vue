@@ -17,7 +17,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             multiLanguage: this.multiLanguage,
             locale: this.lang,
             languages: this.languages,

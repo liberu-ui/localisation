@@ -37,7 +37,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             keyCollector: this.keyCollector,
             isTouch: this.isTouch,
             hover: this.hover,
