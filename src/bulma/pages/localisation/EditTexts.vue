@@ -9,13 +9,13 @@
                             @input="getLangFile()"
                             :placeholder="i18n('Choose language')"/>
                     </div>
-                    <div class="column is-half has-text-right animated fadeIn is-hidden-mobile"
+                    <div class="column is-half has-text-right animate__animated animate__fadeIn is-hidden-mobile"
                         v-if="selectedLocale">
                         <p class="pt-1">
                             <b>{{ keysCount }}</b> {{ i18n('keys found') }}
                         </p>
                     </div>
-                    <div class="column animated fadeIn"
+                    <div class="column animate__animated animate__fadeIn"
                         v-if="selectedLocale">
                         <div class="field">
                             <p class="control has-icons-left has-icons-right">
@@ -143,6 +143,7 @@
 </template>
 
 <script>
+import 'animate.css';
 import { mapState } from 'vuex';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
