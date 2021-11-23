@@ -9,34 +9,38 @@
                             @input="getLangFile()"
                             :placeholder="i18n('Choose language')"/>
                     </div>
-                    <div class="column is-half has-text-right animate__animated animate__fadeIn is-hidden-mobile"
-                        v-if="selectedLocale">
-                        <p class="pt-1">
-                            <b>{{ keysCount }}</b> {{ i18n('keys found') }}
-                        </p>
-                    </div>
-                    <div class="column animate__animated animate__fadeIn"
-                        v-if="selectedLocale">
-                        <div class="field">
-                            <p class="control has-icons-left has-icons-right">
-                                <input type="text"
+                    <fade>
+                        <div class="column is-half has-text-right is-hidden-mobile"
+                             v-if="selectedLocale">
+                            <p class="pt-1">
+                                <b>{{ keysCount }}</b> {{ i18n('keys found') }}
+                            </p>
+                        </div>
+                    </fade>
+                    <fade>
+                        <div class="column"
+                            v-if="selectedLocale">
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input type="text"
                                     class="input is-rounded"
                                     v-focus
                                     v-select-on-focus
                                     :placeholder="i18n('Search')"
                                     v-model="query"
                                     @keyup.enter="isNewKey ? addKey() : focusIt(null)">
-                                <span class="icon is-small is-left">
+                                    <span class="icon is-small is-left">
                                     <fa icon="search"/>
                                 </span>
-                                <span class="icon is-small is-right clear-button"
-                                    v-if="query"
-                                    @click="query = null">
+                                    <span class="icon is-small is-right clear-button"
+                                        v-if="query"
+                                        @click="query = null">
                                     <a class="delete is-small"/>
                                 </span>
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </fade>
                 </div>
             </div>
             <div class="column">
@@ -143,7 +147,7 @@
 </template>
 
 <script>
-import 'animate.css';
+import { Fade } from '@enso-ui/transitions';
 import { mapState } from 'vuex';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -161,7 +165,7 @@ export default {
 
     directives: { focus, selectOnFocus },
 
-    components: { EnsoSelect, Fa, VueSwitch },
+    components: { EnsoSelect, Fa, Fade, VueSwitch },
 
     data: () => ({
         langFile: {},
