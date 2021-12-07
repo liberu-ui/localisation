@@ -272,12 +272,12 @@ export default {
             }).catch(this.errorHandler);
         },
         addKey() {
-            this.$set(this.langFile, this.query, null);
+            this.langFile[this.query] = null;
             this.updateOriginal();
             this.focusIt();
         },
         removeKey(key) {
-            this.$delete(this.langFile, key);
+            delete this.langFile[key];
             this.updateOriginal();
         },
         focusIt(id = null) {
