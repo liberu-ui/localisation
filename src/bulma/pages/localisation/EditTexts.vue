@@ -161,7 +161,7 @@ library.add(faSearch, faTrashAlt);
 export default {
     name: 'EditTexts',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['canAccess', 'errorHandler', 'i18n', 'http', 'route', 'toastr'],
 
     directives: { focus, selectOnFocus },
 
@@ -234,7 +234,7 @@ export default {
         init() {
             this.loading = true;
 
-            axios.get(this.route('system.localisation.editTexts'))
+            this.http.get(this.route('system.localisation.editTexts'))
                 .then(({ data }) => {
                     this.loading = false;
                     this.locales = data;
@@ -249,7 +249,7 @@ export default {
 
             this.loading = true;
 
-            axios.get(this.route('system.localisation.getLangFile', {
+            this.http.get(this.route('system.localisation.getLangFile', {
                 subDir: this.subDir,
                 language: this.selectedLocale,
             })).then(({ data }) => {
@@ -261,7 +261,7 @@ export default {
         saveLangFile() {
             this.loading = true;
 
-            axios.patch(this.route('system.localisation.saveLangFile', {
+            this.http.patch(this.route('system.localisation.saveLangFile', {
                 subDir: this.subDir,
                 language: this.selectedLocale,
             }), {
@@ -294,7 +294,7 @@ export default {
             this.originalLangFile = JSON.parse(JSON.stringify(this.langFile));
         },
         merge() {
-            axios.patch(this.route('system.localisation.merge'))
+            this.http.patch(this.route('system.localisation.merge'))
                 .then(({ data }) => {
                     this.loading = false;
                     this.toastr.success(data.message);
