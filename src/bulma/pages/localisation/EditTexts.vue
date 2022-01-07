@@ -6,7 +6,7 @@
                     <div class="column is-half">
                         <enso-select :options="locales"
                             v-model="selectedLocale"
-                            @update:modelValue="getLangFile()"
+                            @update:model-value="getLangFile()"
                             :placeholder="i18n('Choose language')"/>
                     </div>
                     <fade>
