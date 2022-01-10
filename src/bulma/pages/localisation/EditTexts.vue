@@ -161,11 +161,13 @@ library.add(faSearch, faTrashAlt);
 export default {
     name: 'EditTexts',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'http', 'route', 'toastr'],
-
     directives: { focus, selectOnFocus },
 
-    components: { EnsoSelect, Fa, Fade, VueSwitch },
+    components: {
+        EnsoSelect, Fa, Fade, VueSwitch,
+    },
+
+    inject: ['canAccess', 'errorHandler', 'i18n', 'http', 'route', 'toastr'],
 
     data: () => ({
         langFile: {},
