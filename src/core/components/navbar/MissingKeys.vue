@@ -4,7 +4,7 @@ import { mapState, mapMutations } from 'vuex';
 export default {
     name: 'MissingKeys',
 
-    inject: ['errorHandler', 'route', 'toastr'],
+    inject: ['errorHandler', 'http', 'route', 'toastr'],
 
     data: () => ({
         hover: false,
@@ -25,7 +25,7 @@ export default {
     methods: {
         ...mapMutations('localisation', ['addKey', 'clearMissingKeys']),
         persist() {
-            axios.patch(
+            this.http.patch(
                 this.route('system.localisation.addKey'),
                 { keys: this.missingKeys },
             ).then(({ data }) => {
@@ -37,7 +37,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             keyCollector: this.keyCollector,
             isTouch: this.isTouch,
             hover: this.hover,

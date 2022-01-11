@@ -6,37 +6,41 @@
                     <div class="column is-half">
                         <enso-select :options="locales"
                             v-model="selectedLocale"
-                            @input="getLangFile()"
+                            @update:model-value="getLangFile()"
                             :placeholder="i18n('Choose language')"/>
                     </div>
-                    <div class="column is-half has-text-right animated fadeIn is-hidden-mobile"
-                        v-if="selectedLocale">
-                        <p class="pt-1">
-                            <b>{{ keysCount }}</b> {{ i18n('keys found') }}
-                        </p>
-                    </div>
-                    <div class="column animated fadeIn"
-                        v-if="selectedLocale">
-                        <div class="field">
-                            <p class="control has-icons-left has-icons-right">
-                                <input type="text"
+                    <fade>
+                        <div class="column is-half has-text-right is-hidden-mobile"
+                             v-if="selectedLocale">
+                            <p class="pt-1">
+                                <b>{{ keysCount }}</b> {{ i18n('keys found') }}
+                            </p>
+                        </div>
+                    </fade>
+                    <fade>
+                        <div class="column"
+                            v-if="selectedLocale">
+                            <div class="field">
+                                <p class="control has-icons-left has-icons-right">
+                                    <input type="text"
                                     class="input is-rounded"
                                     v-focus
                                     v-select-on-focus
                                     :placeholder="i18n('Search')"
                                     v-model="query"
                                     @keyup.enter="isNewKey ? addKey() : focusIt(null)">
-                                <span class="icon is-small is-left">
+                                    <span class="icon is-small is-left">
                                     <fa icon="search"/>
                                 </span>
-                                <span class="icon is-small is-right clear-button"
-                                    v-if="query"
-                                    @click="query = null">
+                                    <span class="icon is-small is-right clear-button"
+                                        v-if="query"
+                                        @click="query = null">
                                     <a class="delete is-small"/>
                                 </span>
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </fade>
                 </div>
             </div>
             <div class="column">
@@ -143,7 +147,9 @@
 </template>
 
 <script>
+import { Fade } from '@enso-ui/transitions';
 import { mapState } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { focus, selectOnFocus } from '@enso-ui/directives';
@@ -155,11 +161,13 @@ library.add(faSearch, faTrashAlt);
 export default {
     name: 'EditTexts',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
-
     directives: { focus, selectOnFocus },
 
-    components: { EnsoSelect, VueSwitch },
+    components: {
+        EnsoSelect, Fa, Fade, VueSwitch,
+    },
+
+    inject: ['canAccess', 'errorHandler', 'i18n', 'http', 'route', 'toastr'],
 
     data: () => ({
         langFile: {},
@@ -228,7 +236,7 @@ export default {
         init() {
             this.loading = true;
 
-            axios.get(this.route('system.localisation.editTexts'))
+            this.http.get(this.route('system.localisation.editTexts'))
                 .then(({ data }) => {
                     this.loading = false;
                     this.locales = data;
@@ -243,7 +251,7 @@ export default {
 
             this.loading = true;
 
-            axios.get(this.route('system.localisation.getLangFile', {
+            this.http.get(this.route('system.localisation.getLangFile', {
                 subDir: this.subDir,
                 language: this.selectedLocale,
             })).then(({ data }) => {
@@ -255,7 +263,7 @@ export default {
         saveLangFile() {
             this.loading = true;
 
-            axios.patch(this.route('system.localisation.saveLangFile', {
+            this.http.patch(this.route('system.localisation.saveLangFile', {
                 subDir: this.subDir,
                 language: this.selectedLocale,
             }), {
@@ -266,12 +274,12 @@ export default {
             }).catch(this.errorHandler);
         },
         addKey() {
-            this.$set(this.langFile, this.query, null);
+            this.langFile[this.query] = null;
             this.updateOriginal();
             this.focusIt();
         },
         removeKey(key) {
-            this.$delete(this.langFile, key);
+            delete this.langFile[key];
             this.updateOriginal();
         },
         focusIt(id = null) {
@@ -288,7 +296,7 @@ export default {
             this.originalLangFile = JSON.parse(JSON.stringify(this.langFile));
         },
         merge() {
-            axios.patch(this.route('system.localisation.merge'))
+            this.http.patch(this.route('system.localisation.merge'))
                 .then(({ data }) => {
                     this.loading = false;
                     this.toastr.success(data.message);

@@ -1,6 +1,6 @@
 <template>
     <core-key-collector>
-        <template v-slot:default="{ bindings, events, isLocal }">
+        <template #default="{ bindings, events, isLocal }">
             <div class="level is-mobile"
                 v-if="isLocal">
                 <div class="level-left">
