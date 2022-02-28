@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/localisation",
-  "version": "4.0.16",
+  "version": "5.0.0",
   "description": "Basic localisation package",
   "main": "src/bulma/pages/localisation/Index.vue",
   "scripts": {
