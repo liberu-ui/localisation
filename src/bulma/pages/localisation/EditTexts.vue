@@ -147,14 +147,14 @@
 </template>
 
 <script>
-import { Fade } from '@enso-ui/transitions';
+import { Fade } from '@liberu-ui/transitions';
 import { mapState } from 'vuex';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { focus, selectOnFocus } from '@enso-ui/directives';
-import { EnsoSelect } from '@enso-ui/select/bulma';
-import VueSwitch from '@enso-ui/switch/bulma';
+import { focus, selectOnFocus } from '@liberu-ui/directives';
+import { EnsoSelect } from '@liberu-ui/select/bulma';
+import VueSwitch from '@liberu-ui/switch/bulma';
 
 library.add(faSearch, faTrashAlt);
 

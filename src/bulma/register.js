@@ -1,4 +1,4 @@
-import App from '@enso-ui/ui/src/core/app';
+import App from '@liberu-ui/ui/src/core/app';
 import MissingKey from './components/navbar/MissingKeys.vue';
 import KeyCollector from './components/settings/KeyCollector.vue';
 import LanguageSelector from './components/settings/LanguageSelector.vue';

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { Dropdown, DropdownItem } from '@enso-ui/dropdown/bulma';
+import { Dropdown, DropdownItem } from '@liberu-ui/dropdown/bulma';
 import CoreLanguageSelector from '../../../core/components/settings/LanguageSelector.vue';
 
 export default {

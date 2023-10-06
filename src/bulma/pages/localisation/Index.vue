@@ -12,7 +12,7 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { EnsoTable } from '@enso-ui/tables/bulma';
+import { EnsoTable } from '@liberu-ui/tables/bulma';
 
 library.add(faEdit);
 

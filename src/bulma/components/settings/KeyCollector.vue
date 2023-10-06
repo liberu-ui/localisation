@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import VueSwitch from '@enso-ui/switch/bulma';
+import VueSwitch from '@liberu-ui/switch/bulma';
 import CoreKeyCollector from '../../../core/components/settings/KeyCollector.vue';
 
 export default {
