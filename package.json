@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enso-ui/localisation.git"
+    "url": "git+https://github.com/liberu-ui/localisation.git"
   },
   "keywords": [
     "localisation",
@@ -17,9 +17,9 @@
   "author": "Adrian Ocneanu <aocneanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enso-ui/localisation/issues"
+    "url": "https://github.com/liberu-ui/localisation/issues"
   },
-  "homepage": "https://github.com/enso-ui/localisation#readme",
+  "homepage": "https://github.com/liberu-ui/localisation#readme",
   "dependencies": {
     "@liberu-ui/directives": "^2.0",
     "@liberu-ui/dropdown": "^3.0",
