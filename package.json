@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/localisation",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Basic localisation package",
   "main": "src/bulma/pages/localisation/Index.vue",
   "scripts": {
